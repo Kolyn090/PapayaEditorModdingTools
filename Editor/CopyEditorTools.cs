@@ -1,4 +1,3 @@
-// File: Editor/CopyEditorTools.cs
 using UnityEditor;
 using UnityEngine;
 using System.IO;
@@ -14,8 +13,19 @@ public static class CopyEditorTools
 
     private static void CopyFiles()
     {
-        string sourceFolder = Path.Combine(Application.dataPath, "../Library/PackageCache/com.yourname.editor-tools@1.0.0/Editor");
-        string targetFolder = Path.Combine(Application.dataPath, "EditorTools");
+        string packageCache = Path.Combine(Application.dataPath, "../Library/PackageCache");
+        string packagePrefix = "com.kolyn090.papaya-editor-modding-tools";
+
+        // Find the folder that starts with the package name
+        string[] matches = Directory.GetDirectories(packageCache, packagePrefix + "*", SearchOption.TopDirectoryOnly);
+        if (matches.Length == 0)
+        {
+            Debug.LogWarning("Package folder not found in PackageCache!");
+            return;
+        }
+        string sourceFolder = Path.Combine(matches[0], "Editor");
+
+        string targetFolder = Path.Combine(Application.dataPath, "Editor");
 
         if (!Directory.Exists(sourceFolder))
         {
