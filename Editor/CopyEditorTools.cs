@@ -11,11 +11,11 @@ public static class CopyEditorTools
         CopyFiles();
     }
 
-    static CopyEditorTools()
-    {
-        // Run after domain reload (on project load)
-        EditorApplication.delayCall += CopyFiles;
-    }
+    // static CopyEditorTools()
+    // {
+    //     // Run after domain reload (on project load)
+    //     EditorApplication.delayCall += CopyFiles;
+    // }
 
     private static void CopyFiles()
     {
