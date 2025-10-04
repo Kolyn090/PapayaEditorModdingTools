@@ -8,7 +8,7 @@ public static class CopyEditorTools
     [MenuItem("Tools/Update Papaya Editor Modding Tools", priority = 0)]
     public static void ForceUpdate()
     {
-        CopyEditorScripts();
+        CopyFiles();
     }
 
     static CopyEditorTools()
