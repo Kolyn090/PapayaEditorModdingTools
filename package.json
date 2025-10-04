@@ -8,5 +8,7 @@
     "name": "Kolyn090",
     "url": "https://github.com/Kolyn090"
   },
-  "dependencies": {}
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.0" 
+  }
 }
