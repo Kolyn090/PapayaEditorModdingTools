@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "displayName": "Papaya Editor Modding Tools",
   "description": "Lightweight modding tools for Unity games. Currently only Chinese tutorial is available. Search uploader \"木瓜凝乳蛋白酶\" on Bilibili.",
-  "unity": "2021.3.33f1",
+  "unity": "2021.3",
   "author": {
     "name": "Kolyn090",
     "url": "https://github.com/Kolyn090"
