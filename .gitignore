@@ -1,0 +1,25 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.csproj
+*.unityproj
+*.sln
+*.sw?
+*.tmp
+
+# Unity generated meta and cache (keep *.meta!)
+*.mdb
+*.pidb
+*.booproj
+*.svd
+*.pdb
+
+# Rider
+*.DotSettings
