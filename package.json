@@ -2,7 +2,7 @@
   "name": "com.kolyn090.papaya-editor-modding-tools",
   "version": "1.0.0",
   "displayName": "Papaya Editor Modding Tools",
-  "description": "Lightweight modding tools for Unity games. Currently only Chinese tutorial is available. Search uploader \"木瓜凝乳蛋白酶\" on Bilibili.",
+  "description": "Lightweight modding tools for Unity games. The only tutorial available right now is on Bilibili (Mandarin). Check out https://github.com/Kolyn090/PapayaEditorModdingTools for more info.",
   "unity": "2021.3",
   "author": {
     "name": "Kolyn090",
