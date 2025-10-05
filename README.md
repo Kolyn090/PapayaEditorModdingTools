@@ -58,6 +58,11 @@ The installation has been completed. Check if you have the following:
 
 ![](/Documentation~/ins8.png)
 
+## Update package
+To update this package, first go to UPM and click "Update". Second, in the top tool bar, find "Tools/Update Papaya Editor Modding Tools" and click it (just like in the installation). **Please do not forget this step!**
+
+![](/Documentation~/ins9.png)
+
 ## Dependencies
 Dependencies will be automatically downloaded to your Unity project by UPM.
 
