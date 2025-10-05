@@ -16,7 +16,7 @@ namespace ModdingTool.Assets.Editor.SpritesheetFromDumps
         private string _sourceAtlasFilePath = ""; // if used
         private readonly GamePPU _gamePPU = new();
 
-        [MenuItem("Tools/01 Build Spritesheet From Dumps")]
+        [MenuItem("Tools/01 Build Spritesheet From Dumps", priority = 1)]
         public static void ShowWindow()
         {
             GetWindow<SpritesheetFromDumpsMain>("Update build Spritesheet From Dumps");

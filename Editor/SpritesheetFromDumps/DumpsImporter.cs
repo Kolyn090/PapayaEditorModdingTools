@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ModdingTool.Assets.Editor.Util;
 using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -46,7 +47,7 @@ namespace ModdingTool.Assets.Editor.SpritesheetFromDumps
                 if (!spriteJson.ContainsKey("m_Rect")) // Not a Sprite Dump File
                     continue;
 
-                (string, long) namePathID = GetNamePathIDFromDumpName(jsonFile);
+                (string, long) namePathID = NameUtil.GetNamePathIDFromDumpName(jsonFile);
                 // This is the name for sprite meta.
                 // It must be unique within an Altas.
                 string name = namePathID.Item1;
@@ -223,7 +224,7 @@ namespace ModdingTool.Assets.Editor.SpritesheetFromDumps
             foreach (string jsonFile in jsonFiles)
             {
                 string jsonFileName = Path.GetFileName(jsonFile);
-                (string, long) namePathId = GetNamePathIDFromDumpName(jsonFileName);
+                (string, long) namePathId = NameUtil.GetNamePathIDFromDumpName(jsonFileName);
                 long pathID = namePathId.Item2;
                 JObject spriteJson = JObject.Parse(File.ReadAllText(jsonFile));
                 if (spriteJson.ContainsKey("m_Rect"))
@@ -250,34 +251,6 @@ namespace ModdingTool.Assets.Editor.SpritesheetFromDumps
             }
             Debug.LogWarning($"Successfully processed {jsonFiles.Length - failed} number of json files; Failed to process {failed} number of json dumps; Total: {jsonFiles.Length}");
             return result;
-        }
-
-        /// <summary>
-        /// ! Assuming Dump Json File From UABEA
-        /// ! Only Work If Dump Json File Name Has Not Been Changed
-        /// Read the base name and the path id of dump.
-        /// </summary>
-        /// <param name="dumpName">The file name of dump json</param>
-        /// <returns>
-        /// A tuple with item0 = dump base name, item1 = dump path id
-        /// </returns>
-        private (string, long) GetNamePathIDFromDumpName(string dumpName)
-        {
-            string[] splitCab = Path.GetFileName(dumpName).Replace(".json", "").Split("-CAB-");
-            string name = splitCab[0];
-            string[] splitted = splitCab[1].Split("-");
-            long absPathID = long.Parse(splitted[splitted.Length - 1].ToString());
-            long pathID = absPathID;
-            if (splitted.Length == 3)
-            {  // This Path ID is negative
-                pathID = -absPathID;
-            }
-            else if (splitted.Length != 2)
-            {
-                Debug.LogError($"{name} does not fit format.");
-                pathID = -1;
-            }
-            return new(name, pathID);
         }
 
         // Atlas
